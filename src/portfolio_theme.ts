@@ -9,7 +9,7 @@ export const portfolioTheme: CustomThemeConfig = {
 		"--theme-font-family-base": `ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif`,
 		"--theme-font-family-heading": `system-ui`,
 		"--theme-font-color-base": "0 0 0",
-		"--theme-font-color-dark": "255 255 255",
+		"--theme-font-color-dark": "black",
 		"--theme-rounded-base": "6px",
 		"--theme-rounded-container": "8px",
 		"--theme-border-base": "0px",
@@ -97,8 +97,8 @@ export const portfolioTheme: CustomThemeConfig = {
 		"--color-surface-500": "212 201 171", // #d4c9ab
 		"--color-surface-600": "191 181 154", // #bfb59a
 		"--color-surface-700": "159 151 128", // #9f9780
-		"--color-surface-800": "127 121 103", // #7f7967
-		"--color-surface-900": "104 98 84", // #686254
+		"--color-surface-800": "#DDD5C7", // #7f7967
+		"--color-surface-900": "#fffff", // #686254
 		
 	}
 }
