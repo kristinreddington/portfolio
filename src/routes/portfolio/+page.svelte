@@ -1,29 +1,21 @@
 <div class="h-full flex justify-center items-center">
     <div class="space-y-10 text-center flex flex-col items-center">
-        <div class="aspect">
+        <div class="aspect -z-1">
             <div class="aspect-inner">
                 <div class="cover">
-                    <div class="book">
-                        <label for="page-1" class="book__page book__page--1">
-                            <img src="/images/SplendorofMarbleCover.jpeg" alt="" />
+                    <div class="book w-full h-full flex">
+                        <label for="page-1" class="book__page book__page--1 relative w-1/2 h-full flex overflow-hidden cursor-pointer">
+                            <img src="/images/SplendorofMarbleCover.jpeg" alt="" class="w-full max-w-full h-auto"/>
                         </label>
 
-                        <label for="page-2" class="book__page">
-                            <div class="page__content">
+                        <label for="page-2" class="book__page relative">
+                            <div class="page__content h-full relative text-center">
                                 <img src="/images/MFS.png" alt="" />
-                                <div class="page__content-text" />
-                                <div class="page__number">3</div>
+                                <div class="page__content-text text-justify" />
+                                <div class="page__number absolute text-center">3</div>
                             </div>
                         </label>
 
-                        <!-- <label for="page-3" class="book__page book__page--4">
-                        <div class="book__page-front">
-                            <div class="page__content">
-                                <h1 class="page__content-book-title">Foundation</h1>
-                                <img src="/images/MFS.png" alt="" />
-                            </div>
-                        </div>
-                    </label> -->
 
                         <!-- Resets the page -->
                         <input type="radio" name="page" id="page-1" />
@@ -31,15 +23,15 @@
                         <!-- Goes to the second page -->
                         <input type="radio" name="page" id="page-2" />
 
-                        <label for="page-2" class="book__page book__page--2">
-                            <div class="book__page-front">
-                                <div class="page__content">
-                                    <h1 class="page__content-book-title">Foundation</h1>
+                        <label for="page-2" class="book__page book__page--2 absolute right-0 pointer-events-none">
+                            <div class="book__page-front absolute w-full h-full">
+                                <div class="page__content h-full relative text-center">
+                                    <h1 class="page__content-book-title font-bold">Foundation</h1>
                                     <img src="/images/MFS.png" alt="" />
                                 </div>
                             </div>
-                            <div class="book__page-back">
-                                <div class="page__content">
+                            <div class="book__page-back  absolute w-full h-full">
+                                <div class="page__content h-full relative text-center">
                                     <h1 class="page__content-title">Contents</h1>
                                     <img src="/images/MFS.png" alt="" />
                                     <div class="page__number">2</div>
@@ -67,16 +59,13 @@
 	}
 
 	.book {
-		width: 100%;
-		height: 100%;
-		display: flex;
 		perspective: 1200px;
 
 		&__page {
-			position: relative;
-			width: 50%;
-			height: 100%;
-			display: flex;
+			/* position: relative; */
+			/* width: 50%; */
+			/* height: 100%; */
+			/* display: flex; */
 			transform: rotateY(0deg);
 			transition: transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
 			transform-origin: 0% 0%;
@@ -96,20 +85,20 @@
 			}
 
 			&--1 {
-				cursor: pointer;
-				overflow: hidden;
+				/* cursor: pointer; */
+				/* overflow: hidden; */
 
-				img {
-					width: 100%;
-					max-width: 100%;
-					height: auto;
-				}
+				/* img { */
+					/* width: 100%; */
+					/* max-width: 100%; */
+					/* height: auto; */
+				/* } */
 			}
 
 			&--2 {
-				position: absolute;
-				right: 0;
-				pointer-events: none;
+				/* position: absolute; */
+				/* right: 0; */
+				/* pointer-events: none; */
 				transform-style: preserve-3d;
 				background-color: var(--page-bg);
 				background-image: linear-gradient(
@@ -119,22 +108,22 @@
 				);
 			}
 
-			&--4 {
+			/* &--4 {
 				cursor: pointer;
 				padding: 0 calc(var(--baseline) * 3);
-			}
+			} */
 
 			&-front {
-				position: absolute;
+				/* position: absolute;
 				width: 100%;
-				height: 100%;
+				height: 100%; */
 				transform: rotateY(0deg) translateZ(1px);
 			}
 
 			&-back {
-				position: absolute;
+				/* position: absolute;
 				width: 100%;
-				height: 100%;
+				height: 100%; */
 				padding: 0 calc(var(--baseline) * 1.8);
 				transform: rotateY(180deg) translateZ(1px);
 			}
@@ -144,14 +133,14 @@
 					padding: 9px;
 				}
 				padding: var(--baseline);
-				height: 100%;
-				position: relative;
-				text-align: center;
+				/* height: 100%; */
+				/* position: relative; */
+				/* text-align: center; */
 
 				&-book-title {
 					font-family: var(--book-title);
 					font-size: calc(var(--base-size) * 3);
-					font-weight: bold;
+					/* font-weight: bold; */
 					text-transform: uppercase;
 					letter-spacing: 3px;
 					color: var(--dark-text);
@@ -159,7 +148,7 @@
 					margin-bottom: calc(var(--baseline) * 2);
 				}
 
-				&-author {
+				/* &-author {
 					font-family: var(--title);
 					font-size: calc(var(--base-size) * 1.2);
 					font-weight: 100;
@@ -184,16 +173,16 @@
 						font-size: calc(var(--base-size) * 1.2);
 						letter-spacing: 0;
 					}
-				}
+				} */
 
-				&-copyright {
+				/* &-copyright {
 					position: absolute;
 					width: calc(100% - (var(--baseline) * 2));
 					bottom: calc(var(--baseline) * 2);
 					font-family: var(--title);
 					font-size: calc(var(--base-size) * 0.8);
 					text-transform: uppercase;
-				}
+				} */
 
 				&-title {
 					font-family: var(--title);
@@ -204,7 +193,7 @@
 					margin-bottom: calc(var(--baseline) * 3);
 				}
 
-				&-table {
+				/* &-table {
 					width: 100%;
 					margin-top: calc(var(--baseline) * 2);
 
@@ -214,42 +203,42 @@
 						padding-bottom: calc(var(--baseline) * 1.5);
 						text-transform: uppercase;
 					}
-				}
+				} */
 
-				&-blockquote {
+				/* &-blockquote {
 					margin-bottom: calc(var(--baseline) * 2);
-				}
+				} */
 
-				&-blockquote-text {
+				/* &-blockquote-text {
 					font-family: var(--title);
 					font-size: calc(var(--base-size) * 0.67);
 					font-style: italic;
 					text-align: justify;
 					line-height: 105%;
-				}
+				} */
 
-				&-blockquote-reference {
+				/* &-blockquote-reference {
 					font-family: var(--title);
 					font-size: calc(var(--base-size) * 0.7);
 					margin-top: calc(var(--baseline) * 0.3);
 					float: right;
 					text-transform: uppercase;
-				}
+				} */
 
 				&-text {
 					font-family: var(--title);
 					font-size: calc(var(--base-size) * 0.67);
-					text-align: justify;
+					/* text-align: justify; */
 					text-indent: var(--baseline);
 				}
 			}
 			.page__number {
-				position: absolute;
+				/* position: absolute; */
 				bottom: var(--baseline);
 				width: calc(100% - (var(--baseline) * 2));
 				font-family: var(--title);
 				font-size: calc(var(--base-size) * 0.67);
-				text-align: center;
+				/* text-align: center; */
 			}
 		}
 

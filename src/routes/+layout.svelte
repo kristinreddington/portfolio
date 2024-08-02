@@ -6,7 +6,7 @@
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
-	export let menuOpen: boolean = false;
+	let menuOpen: boolean;
 
 	
 </script>
@@ -25,11 +25,15 @@
 			</svelte:fragment>
 		</AppBar> -->
 
-		<!-- <NavBar bind:ismenuOpen={menuOpen}/>  -->
+		<div class={menuOpen ? 'openOverlay' : 'closeOverlay'}>
+			<br/>
+			<NavBar bind:ismenuOpen={menuOpen} />
+		<slot />
+
+		</div>
 
 		<!-- </svelte:fragment> -->
 		<!-- Page Route Content -->
-		<slot />
 
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
@@ -37,6 +41,19 @@
 		:global(*) {
 			font-family: 'Playfair Display', serif;
 		}
+		.openOverlay {
+		/* background-color: rgba(28, 28, 28, 0.95); */
+		background-color: rgb(223, 215, 201);
+		animation: .5s ease-in 1s 2 reverse both paused slidein;
+		transition: background-color .6s ease-in 0.3s;
+		height: 100vh;
+		width: 100%;
+		/* display: flex;
+		justify-content: space-between;
+		align-items: center;
+		position: relative; */
+		z-index: 1000;
+	}
 		
 	</style>
 </AppShell>

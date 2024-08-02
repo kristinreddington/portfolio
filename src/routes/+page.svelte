@@ -1,24 +1,14 @@
 <!-- YOU CAN DELETE EVERYTHING IN THIS PAGE -->
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import Icon from '@iconify/svelte';
 	import NavBar from '../components/NavBar.svelte';
-
-
-	$: {
-     console.log('nav changed', menuOpen);
-     // will only get called when the `color` changed.
-  }
-	onMount(() => {});
 	let menuOpen: boolean;
-	let el: HTMLImageElement;
 </script>
 
 <!-- <svelte:document on:click={flip} /> -->
-<div class={menuOpen ? 'openOverlay' : 'closeOverlay'}>
+<!-- <div class={menuOpen ? 'openOverlay' : 'closeOverlay'}>
 	<br/>
 	<NavBar bind:ismenuOpen={menuOpen} />
-</div>
+</div> -->
 
 <style lang="postcss">
 	@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,400,600|Tulpen+One&display=swap');
@@ -31,7 +21,7 @@
 
 		/* spacing */
 		/* this is what defines the global scale */
-		--baseline: 9px;
+		--baseline: 11px;
 
 		/* fonts */
 		--book-title: 'Tulpen One', sans-serif;
@@ -55,7 +45,8 @@
 		padding-left: 25vh;
 	}
 	.openOverlay {
-		background-color: rgba(28, 28, 28, 0.95);
+		/* background-color: rgba(28, 28, 28, 0.95); */
+		background-color: rgb(223, 215, 201);
 		animation: .5s ease-in 1s 2 reverse both paused slidein;
 		transition: background-color .6s ease-in 0.3s;
 		opacity: 1;
@@ -122,11 +113,11 @@
 				cursor: pointer;
 				overflow: hidden;
 
-				img {
+				/* img {
 					width: 100%;
 					max-width: 100%;
 					height: auto;
-				}
+				} */
 			}
 
 			&--2 {
@@ -276,7 +267,7 @@
 			}
 		}
 
-		input[type='radio'] {
+		 input[type='radio'] {
 			display: none;
 
 			&:checked + .book__page {

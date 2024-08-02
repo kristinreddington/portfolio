@@ -13,16 +13,16 @@
         <ul>
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-            <li on:click={() => (ismenuOpen = false)}><a on:click={() => (current = 0)} class:current={current === 0} href="/">Home</a></li>
+            <li class="home" on:click={() => (ismenuOpen = false)}><a on:click={() => (current = 0)} class:current={current === 0} href="/">Home</a></li>
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-            <li on:click={() => (ismenuOpen = false)}><a on:click={() => (current = 1)} class:current={current === 1} href="/">About</a></li>
+            <li class="ul--about" on:click={() => (ismenuOpen = false)}><a on:click={() => (current = 1)} class:current={current === 1} href="/">About</a></li>
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-            <li on:click={() => (ismenuOpen = false)}><a on:click={() => (current = 2)} class:current={current === 2} href="/portfolio">Portfolio</a></li>
+            <li class="ul--portfolio" on:click={() => (ismenuOpen = false)}><a on:click={() => (current = 2)} class:current={current === 2} href="/portfolio">Portfolio</a></li>
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-            <li on:click={() => (ismenuOpen = false)} on:click={() => (current = 3)} class:current={current === 3}><a href="/">Inspo</a></li>
+            <li class="ul--inspo" on:click={() => (ismenuOpen = false)} on:click={() => (current = 3)} class:current={current === 3}><a href="/">Inspo</a></li>
         </ul>
     </nav>
     
@@ -66,7 +66,7 @@
         /* background-color: rgba(28, 28, 28, 0.95); 
         animation: 3s ease-in 1s 2 reverse both paused slidein;
         transition: background-color 0.5s ease-in 0.3s; */
-        opacity: 10;
+        opacity: 0.3;
         z-index: 1000;
     }
     ul {
@@ -81,9 +81,22 @@
         margin-bottom: 4vh;
         list-style: none;
         font-size: 1.1rem;
+        
+       
     }
     li {
-        color: rgb(118, 118, 118);
+        /* color: rgb(118, 118, 118); */
+        &.home {
+             /* This timing applies on the way OUT */
+             transition: 0.25s;
+  transition-timing-function: ease-out;
+  
+  transform: translateY(0);
+  opacity: 1;
+
+            /* animation: 3s ease-in 4s 2 slidein; */
+            /* transition: background-color 0.5s ease-in 0.3s; */
+        }
     }
     .burger {
         height: 28px;
