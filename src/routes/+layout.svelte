@@ -7,53 +7,78 @@
 	import { storePopup } from '@skeletonlabs/skeleton';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 	let menuOpen: boolean;
-
-	
 </script>
 
 <!-- App Shell -->
 <AppShell>
-	
-	<!-- <svelte:fragment slot="header"> -->
-		<!-- <img src="/images/SplendorofMarbleCover.jpeg" alt="" /> -->
-		<!-- App Bar -->
-		<!-- <AppBar>
-			<svelte:fragment slot="lead">
-				<strong class="text-xl uppercase">Skeleton</strong>
-			</svelte:fragment>
-			<svelte:fragment slot="trail">
-			</svelte:fragment>
-		</AppBar> -->
+	<NavBar bind:ismenuOpen={menuOpen} />
 
-		<div class={menuOpen ? 'openOverlay' : 'closeOverlay'}>
-			<br/>
-			<NavBar bind:ismenuOpen={menuOpen} />
-		<slot />
-
+	<!-- Full overlay that fades in smoothly -->
+	<div class="overlay {menuOpen ? 'show' : ''}">
+		<div class="overlay-content">
+			<slot />
 		</div>
-
-		<!-- </svelte:fragment> -->
-		<!-- Page Route Content -->
-
+	</div>
 	<style>
+		:root {
+			--bg-dark: #151311;
+			--bg-overlay: rgba(40, 37, 35, 0.96);
+			--text-main: #F0ECE7;
+			--text-muted: #C5BEB7;
+			--accent-gold: #BBA77D;
+			--accent-sand: #D3CBC4;
+			--border-soft: #3B3937;
+		}
+		body {
+			background-color: var(--bg-dark);
+			color: var(--text-main);
+		}
+		a {
+			color: var(--text-main);
+			text-decoration: none;
+			transition: color 0.3s ease;
+		}
+
+		a:hover {
+			color: var(--accent-gold);
+		}
 		@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
 		:global(*) {
 			font-family: 'Playfair Display', serif;
 		}
-		.openOverlay {
-		/* background-color: rgba(28, 28, 28, 0.95); */
-		background-color: rgb(223, 215, 201);
-		animation: .5s ease-in 1s 2 reverse both paused slidein;
-		transition: background-color .6s ease-in 0.3s;
-		height: 100vh;
-		width: 100%;
-		/* display: flex;
-		justify-content: space-between;
-		align-items: center;
-		position: relative; */
-		z-index: 1000;
-	}
-		
+		.overlay {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			background-color: rgba(40, 37, 35, 0); /* transparent to start */
+			backdrop-filter: blur(8px);
+			-webkit-backdrop-filter: blur(8px);
+			opacity: 0;
+			transform: scale(1.02);
+			transition: background-color 0.8s ease, opacity 0.6s ease, transform 0.6s ease;
+			z-index: 1000;
+			pointer-events: none;
+		}
+
+		.overlay.show {
+			background-color: var(--bg-overlay);
+			opacity: 1;
+			transform: scale(1);
+			pointer-events: all;
+		}
+
+		.overlay-content {
+			opacity: 0;
+			transform: translateY(20px);
+			transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+		}
+
+		.overlay.show .overlay-content {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	</style>
 </AppShell>
